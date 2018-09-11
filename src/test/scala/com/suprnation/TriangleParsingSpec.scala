@@ -1,5 +1,6 @@
 package com.suprnation
 
+import com.suprnation.MinimalTrianglePath.Triangle
 import org.scalatest.{EitherValues, Matchers, WordSpec}
 
 class TriangleParsingSpec extends WordSpec with Matchers with EitherValues {
@@ -45,6 +46,11 @@ class TriangleParsingSpec extends WordSpec with Matchers with EitherValues {
           Array(129, 434, 64, 79, 1234)
         )
       }
+    }
+
+    "ignore white spaces" in new TriangleParsing {
+      val lines = List("   23", "12    90 ", "1     18 10  ", "    99 34 6 7 ", "129 434 64 79 1234")
+      parseTriangle(lines) shouldBe a[Right[_, Triangle]]
     }
 
   }

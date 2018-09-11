@@ -21,7 +21,9 @@ trait TriangleParsing {
   }
 
   private def parseLine(line: String, lineIndex: Int): Either[String, Array[Int]] = Try {
-    line.split(" ").map(_.toInt)
+    line.split(" ")
+      .filter(_.nonEmpty)
+      .map(_.trim.toInt)
   }.toOption.fold[Either[String, Array[Int]]](Left("Triangle must contain only digits")) {
     case digits if digits.size != lineIndex => Left(s"Line $lineIndex of triangle must contain $lineIndex digits only")
     case digits => Right(digits)
