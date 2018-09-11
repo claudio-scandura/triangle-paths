@@ -7,7 +7,7 @@ class MinimalPathApp extends TriangleParsing {
 
 object MinimalPathApp extends App  {
   val appRunner = new MinimalPathApp
-  val lines = Iterator.continually(scala.io.StdIn.readLine()).takeWhile(_.nonEmpty)
+  val lines = Iterator.continually(scala.io.StdIn.readLine()).takeWhile(_ != null).filter(_.nonEmpty)
   appRunner.run(lines.toList) match {
     case Left(errors) => println(s"Errors found in input triangle: $errors")
     case Right(path) => println(s"Minimal triangle path is: $path")
