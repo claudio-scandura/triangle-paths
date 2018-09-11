@@ -13,8 +13,8 @@ class MinimalTrianglePathSpec extends WordSpec with Matchers with LoneElement {
       )
 
       val actualPath = MinimalTrianglePath.calculate(input)
-      actualPath._1.loneElement shouldBe onlyElement
-      actualPath._2 shouldBe onlyElement
+      actualPath.nodes.loneElement shouldBe onlyElement
+      actualPath.sum shouldBe onlyElement
     }
 
     "throw exception if triangle is empty" in {
@@ -31,8 +31,8 @@ class MinimalTrianglePathSpec extends WordSpec with Matchers with LoneElement {
         )
 
         val actualPath = MinimalTrianglePath.calculate(input)
-        actualPath._1 should contain theSameElementsInOrderAs Seq(7, 6, 3, 2)
-        actualPath._2 shouldBe 18
+        actualPath.nodes should contain theSameElementsInOrderAs Seq(7, 6, 3, 2)
+        actualPath.sum shouldBe 18
       }
 
       "there are more minimal paths with equal sum" in {
@@ -43,7 +43,7 @@ class MinimalTrianglePathSpec extends WordSpec with Matchers with LoneElement {
           Array(11, 2, 4, 9)
         )
         //path 7 -> 2 -> 5 -> 4 is also minimal
-        MinimalTrianglePath.calculate(input)._2 shouldBe 18
+        MinimalTrianglePath.calculate(input) should have ('sum(18))
       }
 
       "there are duplicate minimal paths" in {
@@ -55,8 +55,8 @@ class MinimalTrianglePathSpec extends WordSpec with Matchers with LoneElement {
         )
 
         val actualPath = MinimalTrianglePath.calculate(input)
-        actualPath._1 should contain theSameElementsInOrderAs Seq(7, 6, 3, 2)
-        actualPath._2 shouldBe 18
+        actualPath.nodes should contain theSameElementsInOrderAs Seq(7, 6, 3, 2)
+        actualPath.sum shouldBe 18
       }
 
       "there paths with negative numbers" in {
@@ -68,8 +68,8 @@ class MinimalTrianglePathSpec extends WordSpec with Matchers with LoneElement {
         )
 
         val actualPath = MinimalTrianglePath.calculate(input)
-        actualPath._1 should contain theSameElementsInOrderAs Seq(7, -13, 8, -2)
-        actualPath._2 shouldBe 0
+        actualPath.nodes should contain theSameElementsInOrderAs Seq(7, -13, 8, -2)
+        actualPath.sum shouldBe 0
       }
 
     }
