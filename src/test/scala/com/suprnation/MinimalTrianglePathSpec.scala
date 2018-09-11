@@ -16,6 +16,9 @@ class MinimalTrianglePathSpec extends WordSpec with Matchers with LoneElement {
       actualPath.loneElement shouldBe onlyElement
     }
 
+    "throw exception if triangle is empty" in {
+      an[IllegalArgumentException] shouldBe thrownBy(MinimalTrianglePath.calculate(Array.empty))
+    }
   }
 
 }
