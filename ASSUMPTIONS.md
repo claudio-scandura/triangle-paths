@@ -14,9 +14,9 @@ However, on the fly validation is not explicitly required by the exercise and be
 We assume that the following validation rules are reasonable and sufficient for the purpose of the exercise
 * The triangle cannot be empty (no input) 
 * Each level of the triangle, represented by a line of input, cannot contain non numerical characters
-* Each level `i` of the triangle must have exactly `i` numeric digits
+* Each level `i` of the triangle must have exactly `i` digits
 
 In addition, when validating the triangle input by the user, any error is accumulated so that error reporting can be as exhaustive as possible. 
 
-We assume that the triangle can always fit into memory, thus the data can be eagerly loaded before launching the minimal path calculation. This solution can be adapted to lazily load the data into memory and process accordingly but this is deemed out o scope.
+We assume that the triangle can always fit into memory, thus the data can be eagerly loaded before launching the minimal path calculation. This solution can be adapted to lazily load the data into memory and process accordingly but this is deemed out of scope.
 
